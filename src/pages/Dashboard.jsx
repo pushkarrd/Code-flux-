@@ -1,11 +1,14 @@
 import React, { useState } from 'react'
 import { useAuth } from '../contexts/AuthContext'
+import { signInWithGoogle } from '../lib/firebase'
 import CreateCourseModal from '../components/CreateCourseModal'
 
 export default function Dashboard(){
   const { user, loading } = useAuth()
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showSignInPrompt, setShowSignInPrompt] = useState(false)
+  const [isGuestMode, setIsGuestMode] = useState(false)
+  const [signingIn, setSigningIn] = useState(false)
 
   const handleCreateCourse = () => {
     if (!user || user.email === 'demo@codeflux.dev') {
@@ -13,6 +16,27 @@ export default function Dashboard(){
     } else {
       setShowCreateModal(true)
     }
+  }
+
+  const handleGoogleSignIn = async () => {
+    setSigningIn(true)
+    try {
+      await signInWithGoogle()
+      setShowSignInPrompt(false)
+      setShowCreateModal(true)
+      setIsGuestMode(false)
+    } catch (error) {
+      console.error('Sign-in error:', error)
+      alert('Sign-in failed. Please try again.')
+    } finally {
+      setSigningIn(false)
+    }
+  }
+
+  const handleGuestContinue = () => {
+    setIsGuestMode(true)
+    setShowSignInPrompt(false)
+    setShowCreateModal(true)
   }
 
   return (
@@ -48,32 +72,24 @@ export default function Dashboard(){
 
             <div className="space-y-3">
               <button 
-                onClick={() => {
-                  alert('Google Sign-In feature coming soon!')
-                  setShowSignInPrompt(false)
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 transition font-semibold text-slate-900"
+                onClick={handleGoogleSignIn}
+                disabled={signingIn}
+                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 transition font-semibold text-slate-900 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>🔵</span> Sign in with Google
-              </button>
-              <button 
-                onClick={() => {
-                  alert('Email Sign-In feature coming soon!')
-                  setShowSignInPrompt(false)
-                }}
-                className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-slate-100 hover:bg-slate-200 transition font-semibold text-slate-900"
-              >
-                <span>✉️</span> Sign in with Email
+                <span>🔵</span> {signingIn ? 'Signing In...' : 'Sign in with Google'}
               </button>
             </div>
 
             <div className="mt-6 pt-6 border-t border-slate-200">
               <button 
-                onClick={() => setShowSignInPrompt(false)}
+                onClick={handleGuestContinue}
                 className="w-full py-2 px-4 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition font-semibold"
               >
                 Continue as Guest
               </button>
+              <p className="text-xs text-slate-600 text-center mt-3">
+                As a guest, you can view the course form but won't be able to generate courses.
+              </p>
             </div>
           </div>
         </div>
@@ -117,7 +133,7 @@ export default function Dashboard(){
       </section>
 
       {/* Create Course Modal */}
-      {showCreateModal && <CreateCourseModal onClose={() => setShowCreateModal(false)} />}
+      {showCreateModal && <CreateCourseModal onClose={() => setShowCreateModal(false)} isGuest={isGuestMode} />}
     </div>
   )
 }
