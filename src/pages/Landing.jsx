@@ -302,7 +302,7 @@ export default function Landing(){
             <div className="border-t border-slate-700 pt-8">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <p className="text-slate-400 text-sm">
-                  © 2024 CodeFlux. All rights reserved. Built with ❤️ by the CodeFlux Team.
+                  © 2024 CodeFlux. All rights reserved. Built with ❤️ by <span className="text-indigo-400 font-semibold">Pushkar R Deshpande</span>.
                 </p>
                 <div className="flex gap-6 mt-4 md:mt-0">
                   <a href="#" className="text-slate-400 hover:text-indigo-400 transition">Twitter</a>
@@ -312,16 +312,41 @@ export default function Landing(){
               </div>
             </div>
 
+            {/* Team Section */}
+            <div className="mt-8 pt-8 border-t border-slate-700">
+              <div className="bg-slate-800 rounded-lg p-6 mb-6">
+                <h4 className="font-bold text-indigo-400 mb-4">👥 Team Members</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <p className="text-slate-300 font-semibold mb-3">Team Lead</p>
+                    <ul className="text-slate-400 text-sm space-y-2">
+                      <li>• <span className="text-indigo-300">Hamsagar BC</span></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="text-slate-300 font-semibold mb-3">Team Members</p>
+                    <ul className="text-slate-400 text-sm space-y-2">
+                      <li>• N Shreeraksha</li>
+                      <li>• Parimala M Ingalagi</li>
+                      <li>• Bharath HT</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Special Credits */}
             <div className="mt-8 pt-8 border-t border-slate-700 bg-slate-800 rounded-lg p-6">
               <h4 className="font-bold text-indigo-400 mb-3">🙏 Credits & Acknowledgments</h4>
               <ul className="text-slate-400 text-sm space-y-2">
+                <li>✓ Creator & Developer: <span className="text-indigo-400 font-semibold">Pushkar R Deshpande</span></li>
+                <li>✓ Contact: <span className="text-indigo-300">7892349003</span></li>
                 <li>✓ Powered by <span className="text-indigo-400">Google Gemini AI</span> for intelligent course generation</li>
                 <li>✓ Built with <span className="text-indigo-400">React 18</span> and <span className="text-indigo-400">Vite</span> for blazing-fast performance</li>
                 <li>✓ Styled with <span className="text-indigo-400">Tailwind CSS</span> for beautiful, responsive design</li>
                 <li>✓ Backed by <span className="text-indigo-400">Firebase</span> for reliable authentication and data management</li>
                 <li>✓ Special thanks to the open-source community for amazing libraries and tools</li>
-                <li>✓ Designed by the passionate CodeFlux team dedicated to transforming education</li>
+                <li>✓ Dedicated to transforming education through innovative technology</li>
               </ul>
             </div>
           </div>
