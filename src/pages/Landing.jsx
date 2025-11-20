@@ -174,51 +174,6 @@ export default function Landing(){
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">What Our Users Say</h2>
-            <p className="text-xl text-slate-600">Join thousands of satisfied learners</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                name: 'Sarah Johnson',
-                role: 'Student',
-                avatar: '👩‍💼',
-                text: 'CodeFlux changed how I learn! I completed 5 courses in just 3 months. The AI Study Buddy is amazing!'
-              },
-              {
-                name: 'Alex Chen',
-                role: 'Educator',
-                avatar: '👨‍🏫',
-                text: 'Creating courses is incredibly easy. I went from idea to published course in 15 minutes. Best platform ever!'
-              },
-              {
-                name: 'Emma Davis',
-                role: 'Developer',
-                avatar: '👩‍💻',
-                text: 'The community is so supportive and helpful. Learning React has never been this fun and collaborative!'
-              }
-            ].map((testimonial, i) => (
-              <div key={i} className="p-8 bg-slate-50 rounded-xl border border-slate-200">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="text-4xl">{testimonial.avatar}</div>
-                  <div>
-                    <p className="font-bold text-slate-900">{testimonial.name}</p>
-                    <p className="text-sm text-slate-600">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="text-slate-700 italic">"{testimonial.text}"</p>
-                <div className="mt-4 text-yellow-400">⭐⭐⭐⭐⭐</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-indigo-600 to-purple-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
