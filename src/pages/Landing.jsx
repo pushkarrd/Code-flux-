@@ -1,37 +1,73 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 export default function Landing(){
   const navigate = useNavigate()
+  const [isDark, setIsDark] = useState(false)
+
+  // Load theme from localStorage on mount
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('codeflux-theme')
+    if (savedTheme === 'dark') {
+      setIsDark(true)
+    } else {
+      setIsDark(false)
+    }
+  }, [])
+
+  // Toggle theme
+  const toggleTheme = () => {
+    setIsDark(!isDark)
+    localStorage.setItem('codeflux-theme', !isDark ? 'dark' : 'light')
+  }
+
+  const bgColor = isDark ? 'bg-slate-900' : 'bg-white'
+  const navBg = isDark ? 'bg-slate-800 border-b border-slate-700' : 'bg-white'
+  const heroBg = isDark ? 'bg-gradient-to-br from-slate-800 via-slate-900 to-slate-800' : 'bg-gradient-to-br from-indigo-50 via-white to-purple-50'
+  const sectionBg = isDark ? 'bg-slate-800' : 'bg-white'
+  const sectionBgAlt = isDark ? 'bg-slate-700' : 'bg-slate-50'
+  const textPrimary = isDark ? 'text-white' : 'text-slate-900'
+  const textSecondary = isDark ? 'text-slate-400' : 'text-slate-600'
+  const textTertiary = isDark ? 'text-slate-500' : 'text-slate-500'
+  const borderColor = isDark ? 'border-slate-700' : 'border-slate-200'
+  const cardBg = isDark ? 'bg-slate-700 hover:shadow-lg hover:shadow-indigo-500/20' : 'bg-slate-50 hover:shadow-lg'
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={`transition-colors duration-300 ${bgColor}`}>
       {/* Navigation Header */}
-      <nav className="fixed top-0 w-full bg-white shadow-md z-40">
+      <nav className={`fixed top-0 w-full shadow-md z-40 transition-colors duration-300 ${navBg}`}>
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-3xl font-bold text-indigo-600">CodeFlux</div>
-          <button 
-            onClick={() => navigate('/dashboard')}
-            className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold"
-          >
-            Get Started
-          </button>
+          <div className={`text-3xl font-bold ${isDark ? 'text-indigo-400' : 'text-indigo-600'}`}>CodeFlux</div>
+          <div className="flex items-center gap-4">
+            <button 
+              onClick={toggleTheme}
+              className={`px-4 py-2 rounded-lg transition font-semibold flex items-center gap-2 ${isDark ? 'bg-slate-600 text-slate-100 hover:bg-slate-500' : 'bg-slate-100 text-slate-900 hover:bg-slate-200'}`}
+            >
+              {isDark ? '☀️ Light' : '🌙 Dark'}
+            </button>
+            <button 
+              onClick={() => navigate('/dashboard')}
+              className="px-6 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold"
+            >
+              Get Started
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
+      <section className={`pt-32 pb-20 transition-colors duration-300 ${heroBg}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Content */}
             <div>
-              <h1 className="text-6xl font-bold text-slate-900 mb-6 leading-tight">
+              <h1 className={`text-6xl font-bold mb-6 leading-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
                 Learn Smarter,<br/>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
                   Create Faster
                 </span>
               </h1>
-              <p className="text-xl text-slate-600 mb-8">
+              <p className={`text-xl mb-8 ${textSecondary}`}>
                 CodeFlux is an AI-powered learning platform where anyone can create and share courses instantly. 
                 No fees, no limits—just pure learning powered by artificial intelligence.
               </p>
@@ -42,7 +78,7 @@ export default function Landing(){
                 >
                   Start Learning Free
                 </button>
-                <button className="px-8 py-4 border-2 border-slate-300 text-slate-900 rounded-lg hover:border-slate-400 transition font-semibold text-lg">
+                <button className={`px-8 py-4 border-2 rounded-lg transition font-semibold text-lg ${isDark ? 'border-slate-600 text-slate-300 hover:border-slate-500' : 'border-slate-300 text-slate-900 hover:border-slate-400'}`}>
                   Watch Demo
                 </button>
               </div>
@@ -51,15 +87,15 @@ export default function Landing(){
               <div className="grid grid-cols-3 gap-6 mt-12">
                 <div>
                   <div className="text-3xl font-bold text-indigo-600">10K+</div>
-                  <div className="text-slate-600">Courses Created</div>
+                  <div className={textSecondary}>Courses Created</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-indigo-600">50K+</div>
-                  <div className="text-slate-600">Active Learners</div>
+                  <div className={textSecondary}>Active Learners</div>
                 </div>
                 <div>
                   <div className="text-3xl font-bold text-indigo-600">4.9★</div>
-                  <div className="text-slate-600">Average Rating</div>
+                  <div className={textSecondary}>Average Rating</div>
                 </div>
               </div>
             </div>
@@ -86,11 +122,11 @@ export default function Landing(){
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-white">
+      <section className={`py-20 transition-colors duration-300 ${sectionBg}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Why Choose CodeFlux?</h2>
-            <p className="text-xl text-slate-600">Everything you need to learn and create amazing courses</p>
+            <h2 className={`text-4xl font-bold mb-4 ${textPrimary}`}>Why Choose CodeFlux?</h2>
+            <p className={`text-xl ${textSecondary}`}>Everything you need to learn and create amazing courses</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -126,10 +162,10 @@ export default function Landing(){
                 description: 'Create and publish courses to build your portfolio. Help others learn while establishing yourself as an educator.'
               }
             ].map((feature, i) => (
-              <div key={i} className="p-8 rounded-xl border border-slate-200 hover:shadow-lg transition">
+              <div key={i} className={`p-8 rounded-xl border transition-all ${isDark ? 'bg-slate-700 border-slate-600 hover:bg-slate-600' : 'bg-white border-slate-200'}`}>
                 <div className="text-5xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
-                <p className="text-slate-600">{feature.description}</p>
+                <h3 className={`text-xl font-bold mb-3 ${textPrimary}`}>{feature.title}</h3>
+                <p className={textSecondary}>{feature.description}</p>
               </div>
             ))}
           </div>
@@ -137,11 +173,11 @@ export default function Landing(){
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-slate-50">
+      <section className={`py-20 transition-colors duration-300 ${sectionBgAlt}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">How CodeFlux Works</h2>
-            <p className="text-xl text-slate-600">Three simple steps to create your first course</p>
+            <h2 className={`text-4xl font-bold mb-4 ${textPrimary}`}>How CodeFlux Works</h2>
+            <p className={`text-xl ${textSecondary}`}>Three simple steps to create your first course</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -166,8 +202,8 @@ export default function Landing(){
                 <div className="w-16 h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center text-3xl font-bold mx-auto mb-4">
                   {step.number}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-slate-600">{step.description}</p>
+                <h3 className={`text-2xl font-bold mb-2 ${textPrimary}`}>{step.title}</h3>
+                <p className={textSecondary}>{step.description}</p>
               </div>
             ))}
           </div>
@@ -189,19 +225,19 @@ export default function Landing(){
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-16">
+      <footer className={`transition-colors duration-300 ${isDark ? 'bg-slate-950 text-white' : 'bg-slate-900 text-white'} py-16`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             {/* Brand */}
             <div>
               <div className="text-3xl font-bold text-indigo-400 mb-4">CodeFlux</div>
-              <p className="text-slate-400">Empowering learners and educators worldwide through AI-powered education.</p>
+              <p className={isDark ? 'text-slate-500' : 'text-slate-400'}>Empowering learners and educators worldwide through AI-powered education.</p>
             </div>
 
             {/* Quick Links */}
             <div>
               <h4 className="font-bold text-white mb-4">Product</h4>
-              <ul className="space-y-2 text-slate-400">
+              <ul className={`space-y-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                 <li><a href="#" className="hover:text-white transition">Features</a></li>
                 <li><a href="#" className="hover:text-white transition">Pricing</a></li>
                 <li><a href="#" className="hover:text-white transition">Security</a></li>
@@ -211,7 +247,7 @@ export default function Landing(){
             {/* Company */}
             <div>
               <h4 className="font-bold text-white mb-4">Company</h4>
-              <ul className="space-y-2 text-slate-400">
+              <ul className={`space-y-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                 <li><a href="#" className="hover:text-white transition">About</a></li>
                 <li><a href="#" className="hover:text-white transition">Blog</a></li>
                 <li><a href="#" className="hover:text-white transition">Careers</a></li>
@@ -221,7 +257,7 @@ export default function Landing(){
             {/* Legal */}
             <div>
               <h4 className="font-bold text-white mb-4">Legal</h4>
-              <ul className="space-y-2 text-slate-400">
+              <ul className={`space-y-2 ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                 <li><a href="#" className="hover:text-white transition">Privacy</a></li>
                 <li><a href="#" className="hover:text-white transition">Terms</a></li>
                 <li><a href="#" className="hover:text-white transition">Contact</a></li>
@@ -230,71 +266,69 @@ export default function Landing(){
           </div>
 
           {/* Divider */}
-          <div className="border-t border-slate-700 pt-8 mt-8">
+          <div className={`border-t py-8 mt-8 ${isDark ? 'border-slate-800' : 'border-slate-700'}`}>
             {/* Credits & Details */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
               <div>
                 <h4 className="font-bold text-indigo-400 mb-2">🎯 Our Mission</h4>
-                <p className="text-slate-400 text-sm">
+                <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                   To democratize education by making high-quality learning accessible, affordable, and engaging for everyone, everywhere.
                 </p>
               </div>
               <div>
                 <h4 className="font-bold text-indigo-400 mb-2">🚀 Technology</h4>
-                <p className="text-slate-400 text-sm">
+                <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                   Built with React, Vite, Tailwind CSS, Firebase, and powered by Google's Gemini AI. Built for speed, scalability, and excellence.
                 </p>
               </div>
               <div>
                 <h4 className="font-bold text-indigo-400 mb-2">📞 Support</h4>
-                <p className="text-slate-400 text-sm">
+                <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                   Questions? Email us at support@codeflux.dev or visit our help center. We're here to help 24/7.
                 </p>
               </div>
             </div>
 
             {/* Bottom Footer */}
-            <div className="border-t border-slate-700 pt-8">
+            <div className={`border-t py-8 ${isDark ? 'border-slate-800' : 'border-slate-700'}`}>
               <div className="flex flex-col md:flex-row items-center justify-between">
-                <p className="text-slate-400 text-sm">
+                <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
                   © 2024 CodeFlux. All rights reserved. Built with ❤️ by <span className="text-indigo-400 font-semibold">Pushkar R Deshpande</span>.
                 </p>
                 <div className="flex gap-6 mt-4 md:mt-0">
-                  <a href="#" className="text-slate-400 hover:text-indigo-400 transition">Twitter</a>
-                  <a href="#" className="text-slate-400 hover:text-indigo-400 transition">LinkedIn</a>
-                  <a href="#" className="text-slate-400 hover:text-indigo-400 transition">GitHub</a>
+                  <a href="#" className={`hover:text-indigo-400 transition ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Twitter</a>
+                  <a href="#" className={`hover:text-indigo-400 transition ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>LinkedIn</a>
+                  <a href="#" className={`hover:text-indigo-400 transition ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>GitHub</a>
                 </div>
               </div>
             </div>
 
             {/* Team Section */}
-            <div className="mt-8 pt-8 border-t border-slate-700">
-              <div className="bg-slate-800 rounded-lg p-6 mb-6">
-                <h4 className="font-bold text-indigo-400 mb-4">👥 Team Members</h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <p className="text-slate-300 font-semibold mb-3">Team Lead</p>
-                    <ul className="text-slate-400 text-sm space-y-2">
-                      <li>• <span className="text-indigo-300">Hamsagar BC</span></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <p className="text-slate-300 font-semibold mb-3">Team Members</p>
-                    <ul className="text-slate-400 text-sm space-y-2">
-                      <li>• N Shreeraksha</li>
-                      <li>• Parimala M Ingalagi</li>
-                      <li>• Bharath HT</li>
-                    </ul>
-                  </div>
+            <div className={`mt-8 pt-8 rounded-lg p-6 ${isDark ? 'bg-slate-800' : 'bg-slate-800'}`}>
+              <h4 className="font-bold text-indigo-400 mb-4">👥 Team Members</h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <p className="text-slate-300 font-semibold mb-3">Team Lead</p>
+                  <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
+                    <li>• <span className="text-indigo-300">Hamsagar BC</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <p className="text-slate-300 font-semibold mb-3">Team Members</p>
+                  <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
+                    <li>• N Shreeraksha</li>
+                    <li>• Parimala M Ingalagi</li>
+                    <li>• Bharath HT</li>
+                  </ul>
                 </div>
               </div>
             </div>
 
             {/* Special Credits */}
-            <div className="mt-8 pt-8 border-t border-slate-700 bg-slate-800 rounded-lg p-6">
+            <div className={`mt-8 pt-8 border-t rounded-lg p-6 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-800 border-slate-700'}`}>
               <h4 className="font-bold text-indigo-400 mb-3">🙏 Credits & Acknowledgments</h4>
-              <ul className="text-slate-400 text-sm space-y-2">
-                <li>✓ Creator & Developer: <span className="text-indigo-400 font-semibold">Pushkar R Deshpande</span></li>
+              <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
+                <li>✓ Creator & Developer: <span className="text-indigo-300 font-semibold">Pushkar R Deshpande</span></li>
                 <li>✓ Contact: <span className="text-indigo-300">7892349003</span></li>
                 <li>✓ Powered by <span className="text-indigo-400">Google Gemini AI</span> for intelligent course generation</li>
                 <li>✓ Built with <span className="text-indigo-400">React 18</span> and <span className="text-indigo-400">Vite</span> for blazing-fast performance</li>
