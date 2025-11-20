@@ -8,11 +8,19 @@ export default function Login(){
   async function login(){
     try{
       await signInWithGoogle()
-      navigate('/')
+      navigate('/dashboard')
     }catch(e){
       console.error('Login error', e)
       alert('Login failed')
     }
+  }
+
+  function goToDemo(){
+    navigate('/dashboard')
+  }
+
+  function goToLanding(){
+    navigate('/landing')
   }
 
   return (
@@ -113,10 +121,18 @@ export default function Login(){
 
               {/* Demo Button */}
               <button 
-                onClick={() => navigate('/')}
+                onClick={goToDemo}
                 className="w-full py-3 px-6 rounded-xl border-2 border-indigo-200 text-indigo-600 font-semibold hover:border-indigo-300 hover:bg-indigo-50 transition duration-200 transform hover:scale-105"
               >
                 Try Demo
+              </button>
+
+              {/* Explore Landing */}
+              <button 
+                onClick={goToLanding}
+                className="w-full py-3 px-6 rounded-xl bg-slate-100 text-slate-700 font-semibold hover:bg-slate-200 transition duration-200 mt-3"
+              >
+                Explore Platform
               </button>
 
               {/* Footer Info */}

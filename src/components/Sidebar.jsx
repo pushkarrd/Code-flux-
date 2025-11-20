@@ -8,14 +8,17 @@ export default function Sidebar(){
   return (
     <aside className="w-60 h-screen bg-white border-r" style={{width:240}}>
       <div className="p-6 flex flex-col h-full">
-        <div className="mb-8">
-          <div className="text-2xl font-bold text-primary-600">CodeFlux</div>
-          <div className="text-sm text-slate-500">AI Learning</div>
+        <div className="mb-8 cursor-pointer hover:opacity-80 transition">
+          <NavLink to="/landing" className="flex flex-col">
+            <div className="text-2xl font-bold text-primary-600">CodeFlux</div>
+            <div className="text-sm text-slate-500">AI Learning</div>
+          </NavLink>
         </div>
 
         <nav className="flex-1">
           <ul className="space-y-2">
-            <li><NavLink to="/" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Dashboard</NavLink></li>
+            <li><NavLink to="/landing" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Home</NavLink></li>
+            <li><NavLink to="/dashboard" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Dashboard</NavLink></li>
             <li><NavLink to="/my-learning" className="text-slate-700">My Learning</NavLink></li>
             <li><NavLink to="/explore" className="text-slate-700">Explore</NavLink></li>
             <li><NavLink to="/profile" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Profile</NavLink></li>
