@@ -56,10 +56,11 @@ export default function Sidebar(){
           <ul className="space-y-2">
             <li><NavLink to="/landing" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Home</NavLink></li>
             <li><NavLink to="/dashboard" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Dashboard</NavLink></li>
-            <li><NavLink to="/my-learning" className="text-slate-700">My Learning</NavLink></li>
-            <li><NavLink to="/explore" className="text-slate-700">Explore</NavLink></li>
+            <li><NavLink to="/my-learning" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>My Learning</NavLink></li>
+            <li><NavLink to="/quiz" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Quiz Center</NavLink></li>
+            <li><NavLink to="/explore" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Explore</NavLink></li>
             <li><NavLink to="/profile" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Profile</NavLink></li>
-            <li><NavLink to="/settings" className="text-slate-700">Settings</NavLink></li>
+            <li><NavLink to="/settings" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Settings</NavLink></li>
             <li><NavLink to="/community" className={({isActive})=> isActive? 'font-semibold text-primary-600' : 'text-slate-700'}>Community</NavLink></li>
           </ul>
         </nav>

@@ -76,28 +76,19 @@ export default function Landing(){
                   onClick={() => navigate('/dashboard')}
                   className="px-8 py-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-semibold text-lg"
                 >
-                  Start Learning Free
+                  Get Started
                 </button>
-                <button className={`px-8 py-4 border-2 rounded-lg transition font-semibold text-lg ${isDark ? 'border-slate-600 text-slate-300 hover:border-slate-500' : 'border-slate-300 text-slate-900 hover:border-slate-400'}`}>
-                  Watch Demo
+                <button 
+                  onClick={() => {
+                    document.getElementById('features-section').scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className={`px-8 py-4 border-2 rounded-lg transition font-semibold text-lg ${isDark ? 'border-slate-600 text-slate-300 hover:border-slate-500' : 'border-slate-300 text-slate-900 hover:border-slate-400'}`}
+                >
+                  Explore Features
                 </button>
               </div>
 
-              {/* Stats */}
-              <div className="grid grid-cols-3 gap-6 mt-12">
-                <div>
-                  <div className="text-3xl font-bold text-indigo-600">10K+</div>
-                  <div className={textSecondary}>Courses Created</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-indigo-600">50K+</div>
-                  <div className={textSecondary}>Active Learners</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-indigo-600">4.9★</div>
-                  <div className={textSecondary}>Average Rating</div>
-                </div>
-              </div>
+              {/* Stats - REMOVED as per request */}
             </div>
 
             {/* Right: Visual */}
@@ -122,7 +113,7 @@ export default function Landing(){
       </section>
 
       {/* Features Section */}
-      <section className={`py-20 transition-colors duration-300 ${sectionBg}`}>
+      <section id="features-section" className={`py-20 transition-colors duration-300 ${sectionBg}`}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className={`text-4xl font-bold mb-4 ${textPrimary}`}>Why Choose CodeFlux?</h2>
@@ -293,7 +284,7 @@ export default function Landing(){
             <div className={`border-t py-8 ${isDark ? 'border-slate-800' : 'border-slate-700'}`}>
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>
-                  © 2024 CodeFlux. All rights reserved. Built with ❤️ by <span className="text-indigo-400 font-semibold">Pushkar R Deshpande</span>.
+                  © 2024 CodeFlux. All rights reserved.
                 </p>
                 <div className="flex gap-6 mt-4 md:mt-0">
                   <a href="#" className={`hover:text-indigo-400 transition ${isDark ? 'text-slate-500' : 'text-slate-400'}`}>Twitter</a>
@@ -310,13 +301,15 @@ export default function Landing(){
                 <div>
                   <p className="text-slate-300 font-semibold mb-3">Team Lead</p>
                   <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
-                    <li>• <span className="text-indigo-300">Hamsagar BC</span></li>
+                    <li>• <span className="text-indigo-300">Hemsagar B C</span></li>
+                    <li>• <span className="text-indigo-300">Pushkar R Deshpande</span></li>
                   </ul>
                 </div>
                 <div>
                   <p className="text-slate-300 font-semibold mb-3">Team Members</p>
                   <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
                     <li>• N Shreeraksha</li>
+                    <li>• Spoorti Bhatkal</li>
                     <li>• Parimala M Ingalagi</li>
                     <li>• Bharath HT</li>
                   </ul>
@@ -325,19 +318,7 @@ export default function Landing(){
             </div>
 
             {/* Special Credits */}
-            <div className={`mt-8 pt-8 border-t rounded-lg p-6 ${isDark ? 'bg-slate-800 border-slate-700' : 'bg-slate-800 border-slate-700'}`}>
-              <h4 className="font-bold text-indigo-400 mb-3">🙏 Credits & Acknowledgments</h4>
-              <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
-                <li>✓ Creator & Developer: <span className="text-indigo-300 font-semibold">Pushkar R Deshpande</span></li>
-                <li>✓ Contact: <span className="text-indigo-300">7892349003</span></li>
-                <li>✓ Powered by <span className="text-indigo-400">Google Gemini AI</span> for intelligent course generation</li>
-                <li>✓ Built with <span className="text-indigo-400">React 18</span> and <span className="text-indigo-400">Vite</span> for blazing-fast performance</li>
-                <li>✓ Styled with <span className="text-indigo-400">Tailwind CSS</span> for beautiful, responsive design</li>
-                <li>✓ Backed by <span className="text-indigo-400">Firebase</span> for reliable authentication and data management</li>
-                <li>✓ Special thanks to the open-source community for amazing libraries and tools</li>
-                <li>✓ Dedicated to transforming education through innovative technology</li>
-              </ul>
-            </div>
+
           </div>
         </div>
       </footer>
