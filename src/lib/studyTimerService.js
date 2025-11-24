@@ -91,7 +91,7 @@ export const useStudyTimer = () => {
       // Save final time
       const finalDuration = Math.floor((Date.now() - sessionStartTime) / 1000) + baseTime
       try {
-        await update(ref(firestore, `users/${userId}/studySessions/${today}`), {
+        await updateDoc(doc(db, `users/${userId}/studySessions/${today}`), {
           duration: finalDuration,
           lastUpdated: new Date().toISOString()
         })
