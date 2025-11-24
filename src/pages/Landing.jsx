@@ -411,8 +411,8 @@ export default function Landing(){
                 <div>
                   <p className="text-slate-300 font-semibold mb-3">Team Lead</p>
                   <ul className={`text-sm space-y-2 ${isDark ? 'text-slate-400' : 'text-slate-400'}`}>
-                    <li>• <span className="text-indigo-300">Hemsagar B C</span></li>
                     <li>• <span className="text-indigo-300">Pushkar R Deshpande</span></li>
+                    <li>• <span className="text-indigo-300">Hemsagar B C</span></li>
                   </ul>
                 </div>
                 <div>
