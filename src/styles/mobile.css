@@ -1,0 +1,222 @@
+/* Mobile-First Responsive Design Utilities */
+
+/* Prevent horizontal scroll on mobile */
+* {
+  -webkit-user-select: text;
+  -webkit-touch-callout: none;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe area support for notched devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Prevent double tap zoom on buttons */
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    -webkit-touch-callout: none;
+  }
+
+  /* Full-width modals on mobile */
+  .modal {
+    width: 100vw !important;
+    max-width: 100%;
+    margin: 0 !important;
+    border-radius: 16px 16px 0 0;
+    max-height: 90vh;
+  }
+
+  /* Larger touch targets (min 44x44px) */
+  button,
+  [role="button"],
+  a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+
+  /* Responsive grid */
+  .grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  }
+
+  /* Full-width cards on mobile */
+  .card-mobile {
+    width: 100%;
+    margin: 0 0 12px 0;
+  }
+
+  /* Responsive text */
+  h1 {
+    font-size: clamp(24px, 5vw, 32px);
+  }
+
+  h2 {
+    font-size: clamp(20px, 4vw, 28px);
+  }
+
+  h3 {
+    font-size: clamp(18px, 3.5vw, 24px);
+  }
+
+  p {
+    font-size: clamp(14px, 3vw, 16px);
+    line-height: 1.5;
+  }
+
+  /* Prevent input zoom on iOS */
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  /* Responsive padding/margin */
+  .px-responsive {
+    padding-left: clamp(12px, 4vw, 24px);
+    padding-right: clamp(12px, 4vw, 24px);
+  }
+
+  .py-responsive {
+    padding-top: clamp(12px, 3vh, 20px);
+    padding-bottom: clamp(12px, 3vh, 20px);
+  }
+
+  /* Flexible video container */
+  .video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Stacked layout on mobile */
+  .flex-responsive {
+    flex-direction: column;
+  }
+
+  /* Hide desktop-only elements */
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  }
+
+  .tablet-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+}
+
+/* Desktop optimizations */
+@media (min-width: 1025px) {
+  .grid-auto {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+  }
+
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only,
+  .tablet-only {
+    display: none;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+  header,
+  .header {
+    height: auto;
+    padding: 8px 0;
+  }
+
+  nav {
+    padding: 4px 0;
+  }
+
+  main {
+    margin-top: 8px;
+  }
+}
+
+/* High-DPI display support */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #0f172a;
+    color: #e2e8f0;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
