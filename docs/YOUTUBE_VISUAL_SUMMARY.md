@@ -23,7 +23,7 @@
 ├─────────────────────────────────────────────────┤
 │                                                 │
 │  YouTube API Key ✅                             │
-│  ├─ AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE   │
+│  ├─ your_youtube_api_key_here   │
 │  └─ Configured in: server/index.js line 30     │
 │                                                 │
 │  fetchYouTubeVideos() Function ✅               │

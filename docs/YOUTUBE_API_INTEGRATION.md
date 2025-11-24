@@ -6,7 +6,7 @@ When users create a course and mark chapters, the system now **automatically fet
 
 ## 🔑 API Key Configuration
 
-**YouTube API Key**: `AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE`
+**YouTube API Key**: `your_youtube_api_key_here`
 
 This key is configured in the backend (`server/index.js`) and enables:
 - Video search by topic
@@ -20,7 +20,7 @@ This key is configured in the backend (`server/index.js`) and enables:
 #### 1. YouTube API Setup
 ```javascript
 // YouTube API Setup
-const YOUTUBE_API_KEY = 'AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE';
+const YOUTUBE_API_KEY = 'your_youtube_api_key_here';
 const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3';
 ```
 
@@ -255,7 +255,7 @@ const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 Add to `.env`:
 ```
-YOUTUBE_API_KEY=AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE
+YOUTUBE_API_KEY=your_youtube_api_key_here
 ```
 
 ## 🎨 Sample API Response

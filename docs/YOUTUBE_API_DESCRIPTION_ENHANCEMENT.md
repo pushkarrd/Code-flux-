@@ -7,7 +7,7 @@
 
 **Old**:
 ```javascript
-const YOUTUBE_API_KEY = process.env.VITE_YOUTUBE_API_KEY || 'AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE';
+const YOUTUBE_API_KEY = process.env.VITE_YOUTUBE_API_KEY || 'your_youtube_api_key_here';
 ```
 
 **New**:
@@ -229,5 +229,5 @@ const YOUTUBE_API_KEY = process.env.VITE_YOUTUBE_API_KEY || 'AIzaSyC6iFjlAiLwEND
 
 **Status**: ✅ IMPLEMENTED  
 **Date**: 2025-11-22  
-**API Key Updated**: AIzaSyC6iFjlAiLwENDKTvtyGBalXxuzgUhFFtQ  
+**API Key Updated**: your_youtube_api_key_here  
 **Impact**: YouTube searches now incorporate user description for better video relevance

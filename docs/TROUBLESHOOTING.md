@@ -152,7 +152,7 @@ INVALID_ARGUMENT: Request contains an invalid argument
 1. **Check API Key:**
    ```bash
    # Verify in .env.local
-   VITE_GEMINI_API_KEY=AIzaSyD...
+   VITE_GEMINI_API_KEY=your_gemini_api_key_here
    ```
 
 2. **Check API is Enabled:**

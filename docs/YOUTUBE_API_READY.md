@@ -63,7 +63,7 @@ Your CodeFlux platform now has **fully integrated YouTube API** that automatical
 
 ```javascript
 // YouTube API Key
-const YOUTUBE_API_KEY = 'AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE';
+const YOUTUBE_API_KEY = 'your_youtube_api_key_here';
 
 // Video Fetching
 - Search: YouTube v3 Search API

@@ -14,10 +14,10 @@
 ## 🎬 YouTube API Key
 
 ```
-AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE
+your_youtube_api_key_here
 ```
 
-**Location**: `server/index.js` line 30
+**Location**: Environment variables (.env.local or server/.env)
 
 **What it does**: Searches for YouTube videos and gets video details
 
@@ -233,7 +233,7 @@ Suggested Videos
 
 ### Current Setup
 ```javascript
-const YOUTUBE_API_KEY = 'AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE';
+const YOUTUBE_API_KEY = 'your_youtube_api_key_here';
 ```
 
 ### Production Recommended
@@ -243,7 +243,7 @@ const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
 
 Add to `.env`:
 ```
-YOUTUBE_API_KEY=AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE
+YOUTUBE_API_KEY=your_youtube_api_key_here
 ```
 
 ---
