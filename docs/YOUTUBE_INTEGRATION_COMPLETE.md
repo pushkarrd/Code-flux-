@@ -16,7 +16,7 @@ You now have **real YouTube video integration** for your CodeFlux learning platf
 
 **YouTube API Setup** (Lines 30-31):
 ```javascript
-const YOUTUBE_API_KEY = 'AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE';
+const YOUTUBE_API_KEY = 'your_youtube_api_key_here';
 const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3';
 ```
 
@@ -154,7 +154,7 @@ Frontend: Display course with videos
 Move to environment variables:
 ```bash
 # Add to .env file
-YOUTUBE_API_KEY=AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE
+YOUTUBE_API_KEY=your_youtube_api_key_here
 ```
 
 Then update backend:

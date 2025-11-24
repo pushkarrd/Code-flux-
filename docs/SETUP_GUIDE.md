@@ -54,7 +54,7 @@ Create or update `.env.local` in the project root:
 VITE_API_URL=http://localhost:5000/api
 
 # Firebase configuration (optional for demo)
-VITE_FIREBASE_API_KEY=AIzaSyDemoKeyForLocalDevelopment
+VITE_FIREBASE_API_KEY=your_firebase_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=codeflux-demo.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=codeflux-demo
 ```

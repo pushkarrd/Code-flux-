@@ -44,7 +44,7 @@ Complete setup guide for all external APIs used in CodeFlux.
 
 **`.env.local` (Frontend):**
 ```env
-VITE_FIREBASE_API_KEY=AIzaSyD...
+VITE_FIREBASE_API_KEY=your_firebase_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=codeflux-abc.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=codeflux-abc
 VITE_FIREBASE_STORAGE_BUCKET=codeflux-abc.appspot.com
@@ -93,7 +93,7 @@ FIREBASE_CLIENT_EMAIL=firebase-adminsdk@codeflux-abc.iam.gserviceaccount.com
 
 **`.env.local`:**
 ```env
-VITE_GEMINI_API_KEY=AIzaSyD...
+VITE_GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 ### Step 3: Usage in Code
@@ -189,7 +189,7 @@ In Firebase Console:
 
 **`.env.local`:**
 ```env
-VITE_YOUTUBE_API_KEY=AIzaSyD...
+VITE_YOUTUBE_API_KEY=your_youtube_api_key_here
 ```
 
 ### Step 4: Configure Quota

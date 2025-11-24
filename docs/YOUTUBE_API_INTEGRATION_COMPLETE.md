@@ -3,8 +3,8 @@
 ## Summary of Changes
 
 ### 1. YouTube API Key Updated ✅
-- **Old Key**: `AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE`
-- **New Key**: `AIzaSyC6iFjlAiLwENDKTvtyGBalXxuzgUhFFtQ`
+- **Old Key**: `your_old_youtube_api_key_here`
+- **New Key**: `your_youtube_api_key_here`
 - **File**: `server/index.js` (Line 32)
 
 ### 2. Enhanced Search Query Logic ✅
@@ -243,7 +243,7 @@ Level 4 (ENHANCEMENT) ✨ NEW
 
 ## Status & Verification
 
-✅ **YouTube API Key**: Updated to AIzaSyC6iFjlAiLwENDKTvtyGBalXxuzgUhFFtQ  
+✅ **YouTube API Key**: Updated to your_youtube_api_key_here  
 ✅ **Search Query Logic**: Enhanced with description support  
 ✅ **Backend**: Hot-reloaded and running (port 5000)  
 ✅ **Code Changes**: All files updated and verified  

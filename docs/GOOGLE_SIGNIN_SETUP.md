@@ -62,7 +62,7 @@ This happens when Google Sign-In isn't properly configured. **You have 2 options
 ### Step 6: Update Your App
 The Client ID is already in `.env`:
 ```
-VITE_FIREBASE_API_KEY=AIzaSyDijo4LWfILX2FdmhAOe0dSvePMBbnMus8
+VITE_FIREBASE_API_KEY=your_firebase_api_key_here
 VITE_FIREBASE_AUTH_DOMAIN=ai-learning-platform-4770d.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=ai-learning-platform-4770d
 ```

@@ -49,7 +49,7 @@ The Chapter Details component now features **automatic YouTube video playback** 
 
 **YouTube API Key:**
 ```javascript
-const YOUTUBE_API_KEY = 'AIzaSyDtYElv6Bh1gFau_sKKas-jfL9zMsvEpnE';
+const YOUTUBE_API_KEY = 'your_youtube_api_key_here';
 const YOUTUBE_API_URL = 'https://www.googleapis.com/youtube/v3';
 ```
 
