@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronLeft, BookOpen, Play, CheckCircle, Zap, Target, Map, Volume2, ExternalLink, Loader, Check } from 'lucide-react';
 import chapterService from '../lib/chapterService';
 import { markChapterAsDone, unmarkChapterAsDone, getCourseProgress } from '../lib/progressService';
+import { getVideoSummary } from '../lib/videoSummaryService';
 
 export default function ChapterDetail() {
   const { id: courseId, cid: chapterId } = useParams();
@@ -18,6 +19,8 @@ export default function ChapterDetail() {
   const [alternativeVideos, setAlternativeVideos] = useState([]);
   const [isChapterCompleted, setIsChapterCompleted] = useState(false);
   const [markingProgress, setMarkingProgress] = useState(false);
+  const [videoSummary, setVideoSummary] = useState(null);
+  const [loadingSummary, setLoadingSummary] = useState(false);
 
   useEffect(() => {
     const loadCourseData = async () => {
@@ -96,6 +99,22 @@ export default function ChapterDetail() {
       setFetchingVideo(false);
     }
   }
+
+  const fetchVideoSummary = async (video, topic) => {
+    if (!video || loadingSummary) return;
+    
+    setLoadingSummary(true);
+    try {
+      console.log('🎬 Generating video summary for:', video.title);
+      const summary = await getVideoSummary(video, topic);
+      setVideoSummary(summary);
+    } catch (error) {
+      console.error('Error generating video summary:', error);
+      setVideoSummary(null);
+    } finally {
+      setLoadingSummary(false);
+    }
+  };
 
   const fetchChapterDetails = async (courseData, chapterData) => {
     setFetchingDetails(true);
@@ -183,6 +202,13 @@ export default function ChapterDetail() {
       checkChapterCompletion();
     }
   }, [course, chapter, courseId, chapterId]);
+
+  // Load video summary when video changes
+  useEffect(() => {
+    if (selectedVideo && chapter) {
+      fetchVideoSummary(selectedVideo, chapter.title);
+    }
+  }, [selectedVideo, chapter]);
 
   if (loading) {
     return (
@@ -293,6 +319,26 @@ export default function ChapterDetail() {
                   
                   <h4 className="font-semibold text-white mb-1 text-sm line-clamp-2">{selectedVideo.title}</h4>
                   <p className="text-xs text-gray-400 mb-3">by {selectedVideo.channel}</p>
+                  
+                  {/* Video Summary */}
+                  {(videoSummary || loadingSummary) && (
+                    <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-lg p-3 mb-4">
+                      <div className="flex items-start gap-2">
+                        <span className="text-cyan-400 text-sm font-semibold flex-shrink-0">📝</span>
+                        <div className="flex-1">
+                          <p className="text-xs font-semibold text-cyan-300 mb-1">Video Summary</p>
+                          {loadingSummary ? (
+                            <div className="flex items-center gap-2">
+                              <Loader className="w-3 h-3 animate-spin text-cyan-400" />
+                              <p className="text-xs text-cyan-200">Generating summary...</p>
+                            </div>
+                          ) : (
+                            <p className="text-xs text-cyan-100 leading-relaxed">{videoSummary}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  )}
                   
                   {/* Video Stats */}
                   <div className="grid grid-cols-2 gap-2 mb-4 text-xs">
