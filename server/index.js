@@ -113,20 +113,30 @@ const fetchYouTubeVideos = async (topic, maxResults = 3) => {
 
     console.log(`   📌 Received ${response.data.items.length} results from YouTube API`);
 
-    // Simple filter for topic relevance only
+    // Smart filter for topic relevance - extract key words
     let filteredItems = response.data.items;
     
-    // Filter for topic relevance - check if topic is in title or description
+    // Extract key words from topic (split by common separators and take main words)
+    const topicLower = topic.toLowerCase();
+    const keyWords = topicLower
+      .split(/[\s:,&\-()]+/)
+      .filter(word => word.length > 2) // Only keep meaningful words (3+ chars)
+      .slice(0, 3); // Take max 3 key words
+    
+    console.log(`   🔍 Key words extracted: ${keyWords.join(', ')}`);
+    
+    // Filter for topic relevance - check if ANY key word is in title or description
     filteredItems = filteredItems.filter(item => {
       const title = item.snippet.title.toLowerCase();
       const description = (item.snippet.description || '').toLowerCase();
-      const topicLower = topic.toLowerCase();
       
-      // Video must be relevant to the topic (in title OR description)
-      const isRelevant = title.includes(topicLower) || description.includes(topicLower);
+      // Video must contain at least one key word (more flexible matching)
+      const isRelevant = keyWords.some(word => 
+        title.includes(word) || description.includes(word)
+      );
       
       if (!isRelevant) {
-        console.log(`   ❌ Filtered out: "${item.snippet.title}" (not relevant to ${topic})`);
+        console.log(`   ❌ Filtered out: "${item.snippet.title}"`);
       }
       
       return isRelevant;
@@ -134,10 +144,11 @@ const fetchYouTubeVideos = async (topic, maxResults = 3) => {
 
     console.log(`   ✅ After topic relevance filter: ${filteredItems.length} videos`);
 
-    // If no results, return empty (don't fall back to unrelated videos)
+    // If no relevant videos found, fallback to top search results (YouTube's relevance ranking)
     if (filteredItems.length === 0) {
-      console.warn(`⚠️ No relevant videos found for: ${topic}`);
-      return [];
+      console.warn(`⚠️ No keyword matches found for: ${topic}, using top YouTube results`);
+      filteredItems = response.data.items.slice(0, Math.min(maxResults * 2, 10));
+      console.log(`   ℹ️ Using ${filteredItems.length} top YouTube search results instead`);
     }
 
     // Get video details (duration, view count, likes) - get more than needed to sort
