@@ -22,11 +22,12 @@ app.use(cors({
       'http://localhost:4173'
     ];
 
-    // Allow all Render domains and localhost
+    // Allow Render, Vercel, and localhost domains
     const isRenderUrl = origin && origin.includes('onrender.com');
+    const isVercelUrl = origin && origin.includes('vercel.app');
     const isLocalhost = origin && origin.includes('localhost');
     
-    if (!origin || isRenderUrl || isLocalhost || allowedOrigins.includes(origin)) {
+    if (!origin || isRenderUrl || isVercelUrl || isLocalhost || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('CORS not allowed'));
