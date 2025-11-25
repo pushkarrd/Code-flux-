@@ -4,10 +4,6 @@
   "installCommand": "npm install",
   "outputDirectory": "dist",
   "framework": "vite",
-  "projectSettings": {
-    "sourceFilesOutsideRootDirectory": true,
-    "nodeVersion": "18.x"
-  },
   "env": {
     "VITE_API_URL": "@vite_api_url",
     "VITE_FIREBASE_API_KEY": "@vite_firebase_api_key",
