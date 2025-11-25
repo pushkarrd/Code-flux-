@@ -4,21 +4,6 @@
   "installCommand": "npm install",
   "outputDirectory": "dist",
   "framework": "vite",
-  "env": {
-    "VITE_API_URL": "@vite_api_url",
-    "VITE_FIREBASE_API_KEY": "@vite_firebase_api_key",
-    "VITE_FIREBASE_AUTH_DOMAIN": "@vite_firebase_auth_domain",
-    "VITE_FIREBASE_PROJECT_ID": "@vite_firebase_project_id",
-    "VITE_FIREBASE_STORAGE_BUCKET": "@vite_firebase_storage_bucket",
-    "VITE_FIREBASE_MESSAGING_SENDER_ID": "@vite_firebase_messaging_sender_id",
-    "VITE_FIREBASE_APP_ID": "@vite_firebase_app_id",
-    "VITE_FIREBASE_DATABASE_URL": "@vite_firebase_database_url",
-    "VITE_GOOGLE_CLIENT_ID": "@vite_google_client_id",
-    "VITE_GEMINI_API_KEY": "@vite_gemini_api_key",
-    "VITE_YOUTUBE_API_KEY": "@vite_youtube_api_key",
-    "VITE_QUIZ_GEMINI_API_KEY": "@vite_quiz_gemini_api_key",
-    "VITE_YOUTUBE_API_KEY_FALLBACK": "@vite_youtube_api_key_fallback"
-  },
   "rewrites": [
     {
       "source": "/api/:path*",
