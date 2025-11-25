@@ -70,7 +70,7 @@ export default function ChapterDetail() {
       console.log(`🎬 Fetching YouTube video from backend for topic: ${topic}`);
       
       // Call backend endpoint directly
-      const response = await fetch(`http://localhost:5000/api/youtube/search?topic=${encodeURIComponent(topic)}`);
+      const response = await fetch(`https://code-flux-1.onrender.com/api/youtube/search?topic=${encodeURIComponent(topic)}`);
       const data = await response.json();
       
       if (data.success && data.videos && data.videos.length > 0) {

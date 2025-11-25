@@ -3,7 +3,7 @@
  * Handles fetching structured chapter content from the backend
  */
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = 'https://code-flux-1.onrender.com/api';
 
 export const chapterService = {
   /**
