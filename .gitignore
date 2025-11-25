@@ -74,3 +74,4 @@ temp/
 # Development
 .vite/
 .turbo/
+.vercel
