@@ -1266,8 +1266,9 @@ app.use((req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`🚀 CodeFlux Backend running on http://localhost:${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 CodeFlux Backend running on 0.0.0.0:${PORT}`);
+  console.log(`📡 Backend URL: https://code-flux-1.onrender.com`);
   console.log('✅ Google OAuth configured');
   console.log(`📧 Make sure GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET are set in .env`);
 });
