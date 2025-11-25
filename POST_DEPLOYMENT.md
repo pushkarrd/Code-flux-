@@ -36,10 +36,10 @@ Name: VITE_GEMINI_API_KEY
 Value: [Get from Google AI Studio]
 
 Name: VITE_YOUTUBE_API_KEY
-Value: AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
+Value: [Get from YouTube Data API Console]
 
 Name: VITE_YOUTUBE_API_KEY_FALLBACK
-Value: AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
+Value: [Get from YouTube Data API Console]
 
 Name: VITE_QUIZ_GEMINI_API_KEY
 Value: [Get from Google AI Studio]

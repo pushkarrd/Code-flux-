@@ -57,8 +57,8 @@ vercel deploy --prod
    VITE_FIREBASE_MESSAGING_SENDER_ID = 475093849889
    VITE_FIREBASE_APP_ID = 1:475093849889:web:8b3f8c9d4e5f6a7b8c9d0e1f
    VITE_GEMINI_API_KEY = [Get from Google AI Studio]
-   VITE_YOUTUBE_API_KEY = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
-   VITE_YOUTUBE_API_KEY_FALLBACK = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
+   VITE_YOUTUBE_API_KEY = [Get from YouTube Data API Console]
+   VITE_YOUTUBE_API_KEY_FALLBACK = [Get from YouTube Data API Console]
    VITE_QUIZ_GEMINI_API_KEY = [Get from Google AI Studio]
    ```
 

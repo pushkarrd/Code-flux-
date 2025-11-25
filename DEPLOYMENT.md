@@ -88,8 +88,8 @@ Go to **Project Settings → Environment Variables** and add:
 
 ```
 VITE_GEMINI_API_KEY = [Get from Google AI Studio]
-VITE_YOUTUBE_API_KEY = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
-VITE_YOUTUBE_API_KEY_FALLBACK = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
+VITE_YOUTUBE_API_KEY = [Get from YouTube Data API Console]
+VITE_YOUTUBE_API_KEY_FALLBACK = [Get from YouTube Data API Console]
 VITE_QUIZ_GEMINI_API_KEY = [Get from Google AI Studio]
 GOOGLE_CLIENT_ID = [Your Google OAuth Client ID]
 GOOGLE_CLIENT_SECRET = [Your Google OAuth Client Secret]
