@@ -15,12 +15,14 @@ import Explore from './pages/Explore'
 import Progress from './pages/Progress'
 import Sidebar from './components/Sidebar'
 import Navbar from './components/Navbar'
+import Login from './components/Login'
 
 export default function App(){
   const location = useLocation()
   const isLanding = location.pathname === '/landing' || location.pathname === '/'
   const isOnboarding = location.pathname === '/onboarding'
   const isStudyTimer = location.pathname === '/study-timer'
+  const isLogin = location.pathname === '/login'
 
   // Debug log
   useEffect(() => {
@@ -33,6 +35,10 @@ export default function App(){
         <Routes>
           <Route path="/" element={<Landing/>} />
           <Route path="/landing" element={<Landing/>} />
+        </Routes>
+      ) : isLogin ? (
+        <Routes>
+          <Route path="/login" element={<Login/>} />
         </Routes>
       ) : isOnboarding ? (
         <Routes>

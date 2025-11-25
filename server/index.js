@@ -13,7 +13,25 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5174', 'http://localhost:5173', 'http://localhost:5175', 'http://localhost:5176', 'http://localhost:4173'],
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:5174',
+      'http://localhost:5173',
+      'http://localhost:5175',
+      'http://localhost:5176',
+      'http://localhost:4173'
+    ];
+
+    // Allow all Render domains and localhost
+    const isRenderUrl = origin && origin.includes('onrender.com');
+    const isLocalhost = origin && origin.includes('localhost');
+    
+    if (!origin || isRenderUrl || isLocalhost || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json());

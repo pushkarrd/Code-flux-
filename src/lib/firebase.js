@@ -54,7 +54,8 @@ export const signInWithGoogle = async () => {
     console.log('📡 Exchanging token with backend...');
     
     // Exchange Firebase token with backend for session token
-    const response = await fetch('https://code-flux-1.onrender.com/api/auth/google/callback', {
+    const backendUrl = import.meta.env.VITE_API_URL || 'https://code-flux-1.onrender.com/api';
+    const response = await fetch(`${backendUrl}/auth/google/callback`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
