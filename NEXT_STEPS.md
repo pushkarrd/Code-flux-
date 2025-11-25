@@ -36,10 +36,10 @@ vercel deploy --prod
 1. Go to Backend Project → Settings → Environment Variables
 2. Add these values:
    ```
-   VITE_GEMINI_API_KEY = AIzaSyAmkyo_IDM0i0yev0r0iTfRI6sZfTE-cro
+   VITE_GEMINI_API_KEY = [Get from Google AI Studio]
    VITE_YOUTUBE_API_KEY = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
    VITE_YOUTUBE_API_KEY_FALLBACK = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
-   VITE_QUIZ_GEMINI_API_KEY = AIzaSyAmkyo_IDM0i0yev0r0iTfRI6sZfTE-cro
+   VITE_QUIZ_GEMINI_API_KEY = [Get from Google AI Studio]
    GOOGLE_CLIENT_ID = [Get from Google Cloud]
    GOOGLE_CLIENT_SECRET = [Get from Google Cloud]
    GOOGLE_CALLBACK_URL = https://codeflux-backend.vercel.app/api/auth/google/callback
@@ -56,10 +56,10 @@ vercel deploy --prod
    VITE_FIREBASE_STORAGE_BUCKET = ai-learning-platform-4770d.appspot.com
    VITE_FIREBASE_MESSAGING_SENDER_ID = 475093849889
    VITE_FIREBASE_APP_ID = 1:475093849889:web:8b3f8c9d4e5f6a7b8c9d0e1f
-   VITE_GEMINI_API_KEY = AIzaSyAmkyo_IDM0i0yev0r0iTfRI6sZfTE-cro
+   VITE_GEMINI_API_KEY = [Get from Google AI Studio]
    VITE_YOUTUBE_API_KEY = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
    VITE_YOUTUBE_API_KEY_FALLBACK = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
-   VITE_QUIZ_GEMINI_API_KEY = AIzaSyAmkyo_IDM0i0yev0r0iTfRI6sZfTE-cro
+   VITE_QUIZ_GEMINI_API_KEY = [Get from Google AI Studio]
    ```
 
 ### 5️⃣ Test Deployment (10 min)

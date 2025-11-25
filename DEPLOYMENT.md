@@ -87,10 +87,10 @@ vercel deploy --prod
 Go to **Project Settings → Environment Variables** and add:
 
 ```
-VITE_GEMINI_API_KEY = AIzaSyAmkyo_IDM0i0yev0r0iTfRI6sZfTE-cro
+VITE_GEMINI_API_KEY = [Get from Google AI Studio]
 VITE_YOUTUBE_API_KEY = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
 VITE_YOUTUBE_API_KEY_FALLBACK = AIzaSyBzgoVtLKh3ynOnH0o63ZMu5PMlkkfZSbI
-VITE_QUIZ_GEMINI_API_KEY = AIzaSyAmkyo_IDM0i0yev0r0iTfRI6sZfTE-cro
+VITE_QUIZ_GEMINI_API_KEY = [Get from Google AI Studio]
 GOOGLE_CLIENT_ID = [Your Google OAuth Client ID]
 GOOGLE_CLIENT_SECRET = [Your Google OAuth Client Secret]
 GOOGLE_CALLBACK_URL = https://codeflux-backend.vercel.app/api/auth/google/callback
